@@ -11,7 +11,8 @@ export class AppComponent implements AfterViewInit {
   title = 'naya-iframe';
 
   ngAfterViewInit() {
-    const url = 'http://nayatech.ddns.net:82//trusted/Sv45ROMiScOageWquq6sew==:tTDAUAgm6LY9rWWPOSdvbY1o/t/Template/views/Superstore/Overview?:refresh=y';
+    const token = 'Sv45ROMiScOageWquq6sew==:tTDAUAgm6LY9rWWPOSdvbY1o';
+    const url = `http://nayatech.ddns.net:82//trusted/${token}/t/Template/views/Superstore/Overview?:refresh=y`;
 
     // tslint:disable-next-line:no-unused-expression
     new initViz(url);
