@@ -1,3 +1,11 @@
-<div id="vizContainer" class="wrap-element"></div>
+<button (click)="openTableau()">
+  <h1>
+    SHOW TABLEAU
+  </h1>
+</button>
+
+<div *ngIf="url"
+  id="vizContainer"
+     class="wrap-element"></div>
 
 <router-outlet></router-outlet>

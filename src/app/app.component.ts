@@ -1,4 +1,5 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 declare var initViz: any;
 
@@ -7,14 +8,22 @@ declare var initViz: any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
+  constructor(private httpClient: HttpClient) {
+  }
+
   title = 'naya-iframe';
+  url: string;
 
-  ngAfterViewInit() {
-    const token = 'Sv45ROMiScOageWquq6sew==:tTDAUAgm6LY9rWWPOSdvbY1o';
-    const url = `http://nayatech.ddns.net:82//trusted/${token}/t/Template/views/Superstore/Overview?:refresh=y`;
+  openTableau() {
+    this.httpClient.get('api/planets')
+      .subscribe(() => {
+        const token = 'DJXI-P-CQ9i3gacX5X6U0w==:87RSP9IhWewCFS43x-m5Z3zK';
+        this.url = `http://nayatech.ddns.net:82//trusted/${token}/t/Template/views/Superstore/Overview?:refresh=y`;
 
-    // tslint:disable-next-line:no-unused-expression
-    new initViz(url);
+        // tslint:disable-next-line:no-unused-expression
+        new initViz(this.url);
+      });
+
   }
 }
